@@ -1,0 +1,3 @@
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_5/bild/CMakeFiles/Homework_5.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_5/bild/CMakeFiles/edit_cache.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_5/bild/CMakeFiles/rebuild_cache.dir

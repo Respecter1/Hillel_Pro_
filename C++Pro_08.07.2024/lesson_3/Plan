@@ -1,0 +1,32 @@
+ДЗ 3. Реалізувати власний спрощений варіант std::shared_ptr 
+
+
+Реалізувати власний спрощений варіант std::shared_ptr.
+
+Потрібно реалізуват методи:
+
+    конструктор, який приймає сирий вказівник T*
+    деструктор
+    копіюючий конструктор
+    T& operator=( const T& r )
+    T& operator*() const
+    T* operator->() const
+    long use_count() const
+    T* get() const T* get() const
+    explicit operator bool() const noexcept
+
+
+Мета нашого классу в тому що я хочу використовувати його приблизно так:
+
+MySharedPtr<int> ptr1(new int(42));
+MySharedPtr<int> ptr2 = ptr1;
+*ptr2 = 100;
+
+
+Клас бажано зробити шаблонним. Але якщо ви не працювали з ними - зробіть MySharedPtr для int. Оцінка за це не знижується. Тоді використання буде
+
+MySharedPtr ptr1(new int(42));
+MySharedPtr ptr2 = ptr1;
+*ptr2 = 100;
+
+Саму реалізацію - покращуюйте необмеженно, я все заціню!
