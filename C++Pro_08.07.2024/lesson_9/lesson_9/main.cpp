@@ -6,11 +6,11 @@
 #include "Sensor.h"
 #include "Logger.h"
 #include "Analyzer.h"
+#include "Config.h"
 
-
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     QCoreApplication app(argc, argv);
-
 
     std::vector<std::unique_ptr<Sensor>> sensors;
     sensors.reserve(NUM_SENSORS);
@@ -39,13 +39,12 @@ int main(int argc, char *argv[]) {
         }
         if (iteration == NUM_SENSORS)
         {
+            analyzer->printOverallStats();  // Виводимо загальну статистику тільки після завершення роботи всіх сенсорів
             timer.stop();
+            QCoreApplication::quit(); // Завершуємо програму
         }
     });
     timer.start(TIMER_INTERVAL_MS);
-
-
-    QTimer::singleShot(PROGRAM_DURATION_MS, &app, &QCoreApplication::quit);
 
     return app.exec();
 }

@@ -4,23 +4,33 @@
 #include "Config.h"
 
 Analyzer::Analyzer(QObject* parent)
-    : QObject(parent)
-{ }
+    : QObject(parent) {}
 
-void Analyzer::analyzeData(const SensorMetric& aSensorMetric)
-{
-    if (values.size() >= maxRecords)
-    {
-        values.remove(0);
+void Analyzer::analyzeData(const SensorMetric& aSensorMetric) {
+    sensorData[aSensorMetric.name].push_back(aSensorMetric.value);
+    allValues.push_back(aSensorMetric.value);
+
+    // Обмежуємо кількість записів
+    if (allValues.size() > MAX_RECORDS) {
+        allValues.remove(0);
     }
-    values.push_back(aSensorMetric.value);
+    if (sensorData[aSensorMetric.name].size() > MAX_RECORDS) {
+        sensorData[aSensorMetric.name].remove(0);
+    }
 }
 
 void Analyzer::reportPrint() const
 {
-    if (values.isEmpty())
+    for (const auto& sensorName : sensorData.keys())
     {
-        std::cout << "No data available" << std::endl;
+        printSensorStats(sensorName, sensorData[sensorName]);
+    }
+    printOverallStats();
+}
+
+void Analyzer::printSensorStats(const QString& sensorName, const QVector<int>& values) const {
+    if (values.isEmpty()) {
+        std::cout << sensorName.toStdString() << ": No data available" << std::endl;
         return;
     }
 
@@ -32,8 +42,32 @@ void Analyzer::reportPrint() const
     std::sort(sortedValues.begin(), sortedValues.end());
     int median = sortedValues[sortedValues.size() / 2];
 
-    std::cout << "Max: " << maxVal << std::endl;
-    std::cout << "Min: " << minVal << std::endl;
-    std::cout << "Average: " << average << std::endl;
-    std::cout << "Median: " << median << std::endl;
+    std::cout << "Sensor: " << sensorName.toStdString() << std::endl;
+    std::cout << "  Max: " << maxVal << std::endl;
+    std::cout << "  Min: " << minVal << std::endl;
+    std::cout << "  Average: " << average << std::endl;
+    std::cout << "  Median: " << median << std::endl;
+}
+
+void Analyzer::printOverallStats() const
+{
+    if (allValues.isEmpty())
+    {
+        std::cout << "Overall: No data available" << std::endl;
+        return;
+    }
+
+    int maxVal = *std::max_element(allValues.begin(), allValues.end());
+    int minVal = *std::min_element(allValues.begin(), allValues.end());
+    double average = std::accumulate(allValues.begin(), allValues.end(), 0.0) / allValues.size();
+
+    QVector<int> sortedValues = allValues;
+    std::sort(sortedValues.begin(), sortedValues.end());
+    int median = sortedValues[sortedValues.size() / 2];
+
+    std::cout << "Overall Stats:" << std::endl;
+    std::cout << "  Max: " << maxVal << std::endl;
+    std::cout << "  Min: " << minVal << std::endl;
+    std::cout << "  Average: " << average << std::endl;
+    std::cout << "  Median: " << median << std::endl;
 }
