@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(lesson_9 LANGUAGES CXX)
+project(lesson_10 LANGUAGES CXX)
 
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
@@ -12,24 +12,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
-add_executable(lesson_9
+add_executable(lesson_10
   main.cpp
-  Sensor.h Sensor.cpp
   Logger.h Logger.cpp
   Analyzer.h Analyzer.cpp
-  SensorMetric.h
+  Sensor.h Sensor.cpp
   Config.h
   SensorMetric.h
-
-
-
+  resources.qrc
+  config.json
+  ConfigManager.h ConfigManager.cpp
 
 
 )
-target_link_libraries(lesson_9 Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(lesson_10 Qt${QT_VERSION_MAJOR}::Core)
 
 include(GNUInstallDirs)
-install(TARGETS lesson_9
+install(TARGETS lesson_10
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )

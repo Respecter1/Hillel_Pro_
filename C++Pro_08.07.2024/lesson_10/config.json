@@ -1,0 +1,6 @@
+{
+    "windowTitle": "My Qt Application",
+    "loggingLevel": "INFO",
+    "sensorInterval": 1000,
+    "outputFile": "output.log"
+}
