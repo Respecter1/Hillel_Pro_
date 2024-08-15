@@ -14,15 +14,13 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
 add_executable(lesson_10
   main.cpp
-  Logger.h Logger.cpp
-  Analyzer.h Analyzer.cpp
-  Sensor.h Sensor.cpp
-  Config.h
-  SensorMetric.h
   resources.qrc
-  config.json
-  ConfigManager.h ConfigManager.cpp
-
+  Analyzer.h Analyzer.cpp
+  Logger.h Logger.cpp
+  Sensor.h Sensor.cpp
+  SensorMetric.h
+  Config.h Config.cpp
+  ConfigLoader.h
 
 )
 target_link_libraries(lesson_10 Qt${QT_VERSION_MAJOR}::Core)

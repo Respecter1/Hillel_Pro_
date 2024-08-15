@@ -1,6 +1,7 @@
-#include "Analyzer.h"
 #include <algorithm>
-#include <iostream>
+#include <QDebug>
+
+#include "Analyzer.h"
 #include "Config.h"
 
 Analyzer::Analyzer(QObject* parent)
@@ -10,18 +11,17 @@ void Analyzer::analyzeData(const SensorMetric& aSensorMetric) {
     sensorData[aSensorMetric.name].push_back(aSensorMetric.value);
     allValues.push_back(aSensorMetric.value);
 
-    // Обмежуємо кількість записів
-    if (allValues.size() > MAX_RECORDS) {
+    if (allValues.size() > Config::MAX_RECORDS) {
         allValues.remove(0);
     }
-    if (sensorData[aSensorMetric.name].size() > MAX_RECORDS) {
+    if (sensorData[aSensorMetric.name].size() > Config::MAX_RECORDS) {
         sensorData[aSensorMetric.name].remove(0);
     }
 }
 
 void Analyzer::printStats(const QString& title, const QVector<int>& values) const {
     if (values.isEmpty()) {
-        std::cout << title.toStdString() << ": No data available" << std::endl;
+        qDebug()  << title.toStdString() << ": No data available";
         return;
     }
 
@@ -33,11 +33,11 @@ void Analyzer::printStats(const QString& title, const QVector<int>& values) cons
     std::sort(sortedValues.begin(), sortedValues.end());
     int median = sortedValues[sortedValues.size() / 2];
 
-    std::cout << title.toStdString() << std::endl;
-    std::cout << "  Max: " << maxVal << std::endl;
-    std::cout << "  Min: " << minVal << std::endl;
-    std::cout << "  Average: " << average << std::endl;
-    std::cout << "  Median: " << median << std::endl;
+    qDebug()  << title.toStdString();
+    qDebug()  << "  Max: " << maxVal;
+    qDebug()  << "  Min: " << minVal;
+    qDebug()  << "  Average: " << average;
+    qDebug()  << "  Median: " << median;
 }
 
 void Analyzer::reportPrint() const

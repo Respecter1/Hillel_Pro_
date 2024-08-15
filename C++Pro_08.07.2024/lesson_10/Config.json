@@ -1,0 +1,10 @@
+{
+    "date_time_format": "yyyy-MM-dd hh:mm:ss",
+    "log_file_name_format": "log_%1.txt",
+    "sensor_name_format": "Sensor_%1",
+    "num_sensors": 10,
+    "sensor_max_value": 100,
+    "timer_interval_ms": 1000,
+    "max_records": 10000,
+    "program_duration_ms": 10000
+}
