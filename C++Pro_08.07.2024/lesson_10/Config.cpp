@@ -2,8 +2,8 @@
 
 // Ініціалізація статичних змінних
 QString Config::DATE_TIME_FORMAT = "yyyy-MM-dd hh:mm:ss";
-QString Config::LOG_FILE_NAME_FORMAT = "log_%132.txt";
-QString Config::SENSOR_NAME_FORMAT = "Sensor_%12";
+QString Config::LOG_FILE_NAME_FORMAT = "log_%1.txt";
+QString Config::SENSOR_NAME_FORMAT = "Sensor_%1";
 int Config::NUM_SENSORS = 10;
 int Config::SENSOR_MAX_VALUE = 100;
 int Config::TIMER_INTERVAL_MS = 1000;

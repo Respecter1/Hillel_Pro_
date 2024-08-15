@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
     parser.addHelpOption();
     parser.addVersionOption();
 
-
+    // Додаємо опції командного рядка для нових полів
     parser.addOption(QCommandLineOption(QStringList() << "c" << "config",
                                         "Path to the configuration file.",
                                         "config",
@@ -47,36 +47,41 @@ int main(int argc, char *argv[]) {
                                         "Program duration in milliseconds.",
                                         "program_duration_ms"));
 
+
     parser.process(app);
 
     std::vector<std::unique_ptr<Sensor>> sensors;
     sensors.reserve(Config::NUM_SENSORS);
-    for (int i = 1; i <= Config::NUM_SENSORS; ++i) {
+    for (int i = 1; i <= Config::NUM_SENSORS; ++i)
+    {
         sensors.push_back(std::make_unique<Sensor>(QString(Config::SENSOR_NAME_FORMAT).arg(i)));
     }
 
     auto logger = std::make_unique<Logger>();
     auto analyzer = std::make_unique<Analyzer>();
 
-    for (const auto& sensor : sensors) {
+    for (const auto& sensor : sensors)
+    {
         QObject::connect(sensor.get(), &Sensor::dataReady, logger.get(), &Logger::writeData);
         QObject::connect(sensor.get(), &Sensor::dataReady, analyzer.get(), &Analyzer::analyzeData);
     }
 
-    // Таймер для збору даних
-    QTimer dataTimer;
-    QObject::connect(&dataTimer, &QTimer::timeout, [&]() {
-        for (auto& sensor : sensors) {
-            sensor->newData(QRandomGenerator::global()->bounded(Config::SENSOR_MAX_VALUE));
+    QTimer timer;
+    QObject::connect(&timer, &QTimer::timeout, [&](){
+        static int iteration = 0;
+        if (iteration < Config::NUM_SENSORS)
+        {
+            sensors[iteration]->newData(QRandomGenerator::global()->bounded(Config::SENSOR_MAX_VALUE));
+            ++iteration;
+        }
+        if (iteration == Config::NUM_SENSORS)
+        {
+            analyzer->reportPrint();
+            timer.stop();
+            QCoreApplication::quit();
         }
     });
-    dataTimer.start(Config::TIMER_INTERVAL_MS);
-
-    // Таймер для завершення програми через заданий час
-    QTimer::singleShot(Config::PROGRAM_DURATION_MS, [&]() {
-        analyzer->reportPrint();
-        QCoreApplication::quit();
-    });
+    timer.start(Config::TIMER_INTERVAL_MS);
 
     return app.exec();
 }
