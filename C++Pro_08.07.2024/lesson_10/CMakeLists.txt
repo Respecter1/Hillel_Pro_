@@ -21,6 +21,9 @@ add_executable(lesson_10
   SensorMetric.h
   Config.h Config.cpp
   ConfigLoader.h
+  ConfigLoader.cpp
+  CommandLineOptions.h CommandLineOptions.cpp
+  SensorSystem.h SensorSystem.cpp
 
 )
 target_link_libraries(lesson_10 Qt${QT_VERSION_MAJOR}::Core)

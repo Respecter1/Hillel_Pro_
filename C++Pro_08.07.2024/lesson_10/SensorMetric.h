@@ -7,6 +7,7 @@ struct SensorMetric
 {
     QString name;
     int value;
+
 };
 
 Q_DECLARE_METATYPE(SensorMetric)

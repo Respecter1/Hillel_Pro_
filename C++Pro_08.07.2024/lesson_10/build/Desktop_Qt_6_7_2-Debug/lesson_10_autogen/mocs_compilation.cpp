@@ -2,3 +2,4 @@
 #include "EWIEGA46WW/moc_Analyzer.cpp"
 #include "EWIEGA46WW/moc_Logger.cpp"
 #include "EWIEGA46WW/moc_Sensor.cpp"
+#include "EWIEGA46WW/moc_SensorSystem.cpp"
