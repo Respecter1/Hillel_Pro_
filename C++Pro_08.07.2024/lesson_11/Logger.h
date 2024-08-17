@@ -16,6 +16,7 @@ public slots:
 private:
     QString generateLogFileName(const QString& sensorName) const;
 
+
     // Змінна для збереження імені файлу
     QString logFileName;
 };
