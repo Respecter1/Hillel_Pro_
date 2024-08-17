@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-9f3571a4d58c69a573d3.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "lesson_11",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "lesson_11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lesson_11-Debug-479a691d4251a2971483.json",
+					"name" : "lesson_11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lesson_11_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lesson_11_autogen-Debug-ed06a75aa1a606a14b8a.json",
+					"name" : "lesson_11_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "lesson_11_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-lesson_11_autogen_timestamp_deps-Debug-0cb6705d75e285354c8f.json",
+					"name" : "lesson_11_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug",
+		"source" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

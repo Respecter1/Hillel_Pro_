@@ -1,0 +1,9 @@
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/lesson_11.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/edit_cache.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/rebuild_cache.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/list_install_components.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install/local.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/install/strip.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/lesson_11_autogen_timestamp_deps.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/CMakeFiles/lesson_11_autogen.dir
