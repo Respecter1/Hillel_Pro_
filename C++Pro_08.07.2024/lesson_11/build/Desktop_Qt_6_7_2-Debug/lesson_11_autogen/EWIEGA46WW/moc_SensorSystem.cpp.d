@@ -12,6 +12,8 @@
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/q20functional.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/q20memory.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/q20type_traits.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/q23utility.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qabstractitemmodel.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qalgorithms.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qanystringview.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qarraydata.h \
@@ -36,8 +38,11 @@
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qcontainerfwd.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qcontainerinfo.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qcontiguouscache.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qdarwinhelpers.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qdatastream.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qdebug.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qendian.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qexceptionhandling.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qflags.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qfloat16.h \
@@ -47,15 +52,20 @@
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qgenericatomic.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qglobal.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qglobalstatic.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qhash.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qhashfunctions.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qiodevicebase.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qitemselectionmodel.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qiterable.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qiterator.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qlatin1stringview.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qline.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qlist.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qlocale.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qlogging.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qmalloc.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qmap.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qmargins.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qmath.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qmetacontainer.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qmetatype.h \
@@ -68,12 +78,19 @@
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qoverload.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qpair.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qpoint.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qprocessordetection.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qrect.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qrefcount.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qregularexpression.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qscopedpointer.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qscopeguard.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qset.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qshareddata.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qshareddata_impl.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qsharedpointer.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qsize.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qstring.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qstringalgorithms.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qstringbuilder.h \
@@ -96,6 +113,7 @@
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qtcoreexports.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qtdeprecationmarkers.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qtenvironmentvariables.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qtextstream.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qtmetamacros.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qtnoop.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qtpreprocessorsupport.h \
@@ -107,10 +125,59 @@
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qtypeinfo.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qtypes.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qutf8stringview.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qvariant.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qvarlengtharray.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qvector.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qversiontagging.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qxptype_traits.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qyieldcpu.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qaction.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qbitmap.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qbrush.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qcolor.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qcursor.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qfont.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qfontinfo.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qfontmetrics.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qicon.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qimage.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qkeysequence.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qpaintdevice.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qpalette.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qpixelformat.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qpixmap.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qpolygon.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qregion.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qrgb.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qrgba64.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qtgui-config.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qtguiexports.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qtguiglobal.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qtransform.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qvalidator.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtGui/qwindowdefs.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/QProgressBar \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/QTableWidget \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qabstractitemview.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qabstractslider.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qabstractspinbox.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qframe.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qprogressbar.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qrubberband.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qslider.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qstyle.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qstyleoption.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qtabbar.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qtableview.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qtablewidget.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qtabwidget.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsexports.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtWidgets/qwidget.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -205,6 +272,7 @@
   /usr/include/c++/12/cctype \
   /usr/include/c++/12/cerrno \
   /usr/include/c++/12/chrono \
+  /usr/include/c++/12/climits \
   /usr/include/c++/12/clocale \
   /usr/include/c++/12/cmath \
   /usr/include/c++/12/compare \
@@ -270,7 +338,9 @@
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
@@ -292,8 +362,11 @@
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -338,10 +411,12 @@
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \

@@ -1,7 +1,16 @@
 /home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/lesson_11_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/mainwindow.h \
   /home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/Desktop_Qt_6_7_2-Debug/lesson_11_autogen/moc_predefs.h \
+  /home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/Analyzer.h \
+  /home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/Logger.h \
+  /home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/Sensor.h \
+  /home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/SensorMetric.h \
+  /home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/SensorSystem.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QCoreApplication \
-  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QRandomGenerator \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QMap \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QMetaType \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QObject \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QString \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QVector \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/q20functional.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/q20memory.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/q20type_traits.h \
@@ -80,7 +89,6 @@
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qpair.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qpoint.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qprocessordetection.h \
-  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qrandom.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qrect.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qrefcount.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qregularexpression.h \
@@ -128,6 +136,7 @@
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qutf8stringview.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qvariant.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qvarlengtharray.h \
+  /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qvector.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qversiontagging.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qxptype_traits.h \
   /home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qyieldcpu.h \
@@ -244,8 +253,6 @@
   /usr/include/c++/12/bits/postypes.h \
   /usr/include/c++/12/bits/predefined_ops.h \
   /usr/include/c++/12/bits/ptr_traits.h \
-  /usr/include/c++/12/bits/random.h \
-  /usr/include/c++/12/bits/random.tcc \
   /usr/include/c++/12/bits/range_access.h \
   /usr/include/c++/12/bits/refwrap.h \
   /usr/include/c++/12/bits/shared_ptr.h \
@@ -324,7 +331,6 @@
   /usr/include/c++/12/pstl/glue_algorithm_defs.h \
   /usr/include/c++/12/pstl/glue_memory_defs.h \
   /usr/include/c++/12/pstl/glue_numeric_defs.h \
-  /usr/include/c++/12/random \
   /usr/include/c++/12/ratio \
   /usr/include/c++/12/stdexcept \
   /usr/include/c++/12/streambuf \
@@ -442,7 +448,6 @@
   /usr/include/x86_64-linux-gnu/c++/12/bits/error_constants.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/gthr.h \
-  /usr/include/x86_64-linux-gnu/c++/12/bits/opt_random.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \

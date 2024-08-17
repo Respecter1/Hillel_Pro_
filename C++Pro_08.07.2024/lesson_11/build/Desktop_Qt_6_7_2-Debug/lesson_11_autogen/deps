@@ -27,7 +27,6 @@ lesson_11_autogen/timestamp: \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QMap \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QMetaType \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QObject \
-	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QRandomGenerator \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QString \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/QVector \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/q20functional.h \
@@ -108,7 +107,6 @@ lesson_11_autogen/timestamp: \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qpair.h \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qpoint.h \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qprocessordetection.h \
-	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qrandom.h \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qrect.h \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qrefcount.h \
 	/home/respecter8/Qt/6.7.2/gcc_64/include/QtCore/qregularexpression.h \
@@ -584,8 +582,6 @@ lesson_11_autogen/timestamp: \
 	/usr/include/c++/12/bits/postypes.h \
 	/usr/include/c++/12/bits/predefined_ops.h \
 	/usr/include/c++/12/bits/ptr_traits.h \
-	/usr/include/c++/12/bits/random.h \
-	/usr/include/c++/12/bits/random.tcc \
 	/usr/include/c++/12/bits/range_access.h \
 	/usr/include/c++/12/bits/refwrap.h \
 	/usr/include/c++/12/bits/shared_ptr.h \
@@ -664,7 +660,6 @@ lesson_11_autogen/timestamp: \
 	/usr/include/c++/12/pstl/glue_algorithm_defs.h \
 	/usr/include/c++/12/pstl/glue_memory_defs.h \
 	/usr/include/c++/12/pstl/glue_numeric_defs.h \
-	/usr/include/c++/12/random \
 	/usr/include/c++/12/ratio \
 	/usr/include/c++/12/stdexcept \
 	/usr/include/c++/12/streambuf \
@@ -782,7 +777,6 @@ lesson_11_autogen/timestamp: \
 	/usr/include/x86_64-linux-gnu/c++/12/bits/error_constants.h \
 	/usr/include/x86_64-linux-gnu/c++/12/bits/gthr-default.h \
 	/usr/include/x86_64-linux-gnu/c++/12/bits/gthr.h \
-	/usr/include/x86_64-linux-gnu/c++/12/bits/opt_random.h \
 	/usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
 	/usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
 	/usr/include/x86_64-linux-gnu/gnu/stubs.h \

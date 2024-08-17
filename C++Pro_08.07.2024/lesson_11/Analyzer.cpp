@@ -1,13 +1,15 @@
-#include <algorithm>
-#include <QDebug>
-
 #include "Analyzer.h"
+#include <QDebug>
+#include <algorithm>
 #include "Config.h"
 
 Analyzer::Analyzer(QObject* parent)
-    : QObject(parent) {}
+    : QObject(parent)
+{
+}
 
-void Analyzer::analyzeData(const SensorMetric& aSensorMetric) {
+void Analyzer::analyzeData(const SensorMetric& aSensorMetric)
+{
     sensorData[aSensorMetric.name].push_back(aSensorMetric.value);
     allValues.push_back(aSensorMetric.value);
 
@@ -19,9 +21,10 @@ void Analyzer::analyzeData(const SensorMetric& aSensorMetric) {
     }
 }
 
-void Analyzer::printStats(const QString& title, const QVector<int>& values) const {
+void Analyzer::printStats(const QString& title, const QVector<int>& values) const
+{
     if (values.isEmpty()) {
-        qDebug()  << title.toStdString() << ": No data available";
+        qDebug() << title.toStdString() << ": No data available";
         return;
     }
 
@@ -33,14 +36,21 @@ void Analyzer::printStats(const QString& title, const QVector<int>& values) cons
     std::sort(sortedValues.begin(), sortedValues.end());
     int median = sortedValues[sortedValues.size() / 2];
 
-    qDebug()  << title.toStdString();
-    qDebug()  << "  Max: " << maxVal;
-    qDebug()  << "  Min: " << minVal;
-    qDebug()  << "  Average: " << average;
-    qDebug()  << "  Median: " << median;
+    qDebug() << title.toStdString();
+    qDebug() << "  Max: " << maxVal;
+    qDebug() << "  Min: " << minVal;
+    qDebug() << "  Average: " << average;
+    qDebug() << "  Median: " << median;
 }
 
 void Analyzer::reportPrint() const
 {
     printStats("Overall Stats", allValues);
+}
+
+void Analyzer::reset()
+{
+    // Очищуємо всі зібрані дані
+    sensorData.clear();
+    allValues.clear();
 }

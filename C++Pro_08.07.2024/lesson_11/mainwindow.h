@@ -1,5 +1,5 @@
 #pragma once
-#include <QRandomGenerator>
+
 #include <QMainWindow>
 #include <QListWidget>
 #include <QTableWidget>
@@ -8,6 +8,8 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QCoreApplication>
+#include "SensorSystem.h"
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -29,5 +31,5 @@ private:
     QPushButton* simulateButton;
 
     int sensorCounter;
+    SensorSystem* sensorSystem;
 };
-

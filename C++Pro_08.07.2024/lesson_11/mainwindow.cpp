@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "Config.h"
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent), sensorCounter(0)
@@ -39,6 +40,9 @@ MainWindow::MainWindow(QWidget* parent)
 
     // Ініціалізація прогрес бару
     simulationProgressBar->setValue(0);
+
+    // Ініціалізуємо SensorSystem
+    sensorSystem = new SensorSystem(resultTableWidget, simulationProgressBar, this);
 }
 
 void MainWindow::addSensor()
@@ -60,40 +64,17 @@ void MainWindow::removeSensor()
     }
 }
 
+
 void MainWindow::simulateSensors()
 {
-    int sensorCount = sensorListWidget->count();
-    if (sensorCount == 0) {
-        return;
-    }
+    // Очищення таблиці перед початком симуляції
+    resultTableWidget->clearContents();
+    resultTableWidget->setRowCount(0);  // Скидання кількості рядків
+    simulationProgressBar->reset();  // Скидання прогрес-бару
 
-    // Ініціалізація таблиці результатів
-    resultTableWidget->setRowCount(sensorCount);
-    resultTableWidget->setColumnCount(2); // Колонки: Sensor Name, Value
-    resultTableWidget->setHorizontalHeaderLabels({"Sensor Name", "Value"});
+    int numSensors = sensorListWidget->count();  // Отримуємо кількість сенсорів із UI
 
-    simulationProgressBar->setRange(0, sensorCount);
-    simulationProgressBar->setValue(0);
-
-    // Симуляція для кожного сенсора
-    for (int i = 0; i < sensorCount; ++i) {
-        // Отримуємо ім'я сенсора
-        QListWidgetItem* sensorItem = sensorListWidget->item(i);
-        QString sensorName = sensorItem->text();
-
-        // Генерація випадкового значення для сенсора
-        int sensorValue = QRandomGenerator::global()->bounded(100); // Генеруємо випадкове значення від 0 до 99
-
-        // Додаємо результат в таблицю
-        resultTableWidget->setItem(i, 0, new QTableWidgetItem(sensorName));
-        resultTableWidget->setItem(i, 1, new QTableWidgetItem(QString::number(sensorValue)));
-
-        // Оновлення прогрес-бару
-        simulationProgressBar->setValue(i + 1);
-
-        // Для анімації або затримки (опціонально)
-        QCoreApplication::processEvents();
-    }
+    // Ініціалізація сенсорів з передачею кількості
+    sensorSystem->initialize(numSensors);
+    sensorSystem->run();
 }
-
-

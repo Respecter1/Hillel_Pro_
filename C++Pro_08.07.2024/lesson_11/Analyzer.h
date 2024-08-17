@@ -2,20 +2,19 @@
 
 #include <QObject>
 #include <QVector>
-#include <QMap>
 #include <QString>
+#include <QMap>
 #include "SensorMetric.h"
-
 class Analyzer : public QObject
 {
     Q_OBJECT
 public:
-    Analyzer(QObject* parent = nullptr);
-
+    explicit Analyzer(QObject* parent = nullptr);
+    void analyzeData(const SensorMetric& aSensorMetric);
     void reportPrint() const;
 
-public slots:
-    void analyzeData(const SensorMetric& aSensorMetric);
+    // Додаємо метод для скидання даних
+    void reset();
 
 private:
     void printStats(const QString& title, const QVector<int>& values) const;
