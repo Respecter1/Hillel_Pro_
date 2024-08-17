@@ -1,0 +1,8 @@
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/CMakeFiles/lesson_11.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/CMakeFiles/edit_cache.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/CMakeFiles/rebuild_cache.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/CMakeFiles/list_install_components.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/CMakeFiles/install.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/CMakeFiles/install/local.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/CMakeFiles/install/strip.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/CMakeFiles/lesson_11_autogen.dir

@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/lesson_11_autogen",
+	"CMAKE_BINARY_DIR" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11",
+	"CMAKE_SOURCE_DIR" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11",
+	"INCLUDE_DIR" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/lesson_11_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/config.json"
+	],
+	"LOCK_FILE" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/CMakeFiles/lesson_11_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "/usr/lib/qt6/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/build/CMakeFiles/lesson_11_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_11/resources.qrc",
+	"VERBOSITY" : 0
+}

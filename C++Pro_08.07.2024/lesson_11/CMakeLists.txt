@@ -9,55 +9,49 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Пошук необхідних компонентів Qt
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+# Список файлів проекту
 set(PROJECT_SOURCES
-        main.cpp
-        MainWindow.cpp
-        MainWindow.h
-        mainwindow.ui
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    Analyzer.h Analyzer.cpp
+    CommandLineOptions.h CommandLineOptions.cpp
+    Config.h Config.cpp
+    Logger.h Logger.cpp
+    Sensor.h Sensor.cpp
+    SensorMetric.h
+    SensorSystem.h SensorSystem.cpp
+    ConfigLoader.h ConfigLoader.cpp
+    resources.qrc
 )
 
+# Перевірка версії Qt і додавання цілі збірки
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(lesson_11
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET lesson_11 APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
-    if(ANDROID)
-        add_library(lesson_11 SHARED
-            ${PROJECT_SOURCES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(lesson_11
-            ${PROJECT_SOURCES}
-        )
-    endif()
+    add_executable(lesson_11
+        ${PROJECT_SOURCES}
+    )
 endif()
 
+# Лінкування з бібліотекою Qt Widgets
 target_link_libraries(lesson_11 PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
-if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.lesson_11)
-endif()
+# Встановлення параметрів для різних платформ
 set_target_properties(lesson_11 PROPERTIES
-    ${BUNDLE_ID_OPTION}
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
 
+# Додавання інсталяційних директорій
 include(GNUInstallDirs)
 install(TARGETS lesson_11
     BUNDLE DESTINATION .
@@ -65,6 +59,7 @@ install(TARGETS lesson_11
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
+# Завершення для Qt 6
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(lesson_11)
 endif()
