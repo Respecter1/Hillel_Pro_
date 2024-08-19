@@ -4,72 +4,93 @@
 #include <QRandomGenerator>
 #include <QCoreApplication>
 
-
-SensorSystem::SensorSystem(QTableWidget* resultTable, QProgressBar* progressBar, QObject* parent)
-    : QObject(parent), resultTableWidget(resultTable), simulationProgressBar(progressBar), currentSensorIndex(0)
+SensorSystem::SensorSystem(QObject* parent)
+    : QObject(parent)
 {
+    logger = std::make_unique<Logger>();
     analyzer = std::make_unique<Analyzer>();
 }
 
-void SensorSystem::initialize(int numSensors) {
-    sensors.clear();
-    currentSensorIndex = 0;
+void SensorSystem::addSensor(const QString& sensorName) {
+    auto sensor = std::make_unique<Sensor>(sensorName);
+    sensors.push_back(std::move(sensor));
 
-    analyzer->reset();
-
-    sensors.reserve(numSensors);
-    for (int i = 1; i <= numSensors; ++i) {
-        auto sensor = std::make_unique<Sensor>(QString(Config::SENSOR_NAME_FORMAT).arg(i));
-        auto logger = std::make_unique<Logger>(sensor->objectName());
-
-        qDebug() << "Creating sensor:" << sensor->objectName();  // Діагностика при створенні сенсора
-
-        sensors.push_back(std::move(sensor));
-
-        QObject::connect(sensors.back().get(), &Sensor::dataReady, logger.get(), &Logger::writeData);
-        QObject::connect(sensors.back().get(), &Sensor::dataReady, this, &SensorSystem::handleSensorData);
-        QObject::connect(sensors.back().get(), &Sensor::dataReady, analyzer.get(), &Analyzer::analyzeData);
-
-        qDebug() << "Connected sensor to logger and analyzer:" << sensors.back()->objectName();  // Діагностика після підключення сигналів
-    }
+    // Подключаем сенсоры к логгеру и анализатору
+    QObject::connect(sensors.back().get(), &Sensor::dataReady, logger.get(), &Logger::writeData);
+    QObject::connect(sensors.back().get(), &Sensor::dataReady, analyzer.get(), &Analyzer::analyzeData);
 }
 
-void SensorSystem::run() {
-    QTimer* timer = new QTimer(this);
+void SensorSystem::run(QTableWidget* tableWidget, QProgressBar* progressBar) {
+    if (sensors.empty()) {
+        qDebug() << "No sensors available to run.";
+        return;
+    }
 
-    connect(timer, &QTimer::timeout, this, [=]() {
-        if (currentSensorIndex < sensors.size()) {
-            qDebug() << "Generating new data for sensor:" << sensors[currentSensorIndex]->objectName();  // Діагностика перед генерацією даних
-            sensors[currentSensorIndex]->newData(QRandomGenerator::global()->bounded(Config::SENSOR_MAX_VALUE));
-            ++currentSensorIndex;
+    // Устанавливаем количество строк и колонок в таблице
+    tableWidget->setRowCount(sensors.size());
+    tableWidget->setColumnCount(2);
+    tableWidget->setHorizontalHeaderLabels({"Sensor Name", "Value"});
+
+    progressBar->setRange(0, sensors.size());
+    progressBar->setValue(0);
+
+    QTimer* timer = new QTimer(this);
+    int iteration = 0;
+
+    connect(timer, &QTimer::timeout, this, [=]() mutable {
+
+        if (iteration < sensors.size()) {
+            int sensorValue = QRandomGenerator::global()->bounded(100);
+            sensors[iteration]->newData(sensorValue);
+
+            // Обновляем таблицу
+            tableWidget->setItem(iteration, 0, new QTableWidgetItem(sensors[iteration]->getMetric().name));
+            tableWidget->setItem(iteration, 1, new QTableWidgetItem(QString::number(sensorValue)));
+
+            // Обновляем прогресс-бар
+            progressBar->setValue(iteration + 1);
+
+            ++iteration;
         }
 
-        if (currentSensorIndex == sensors.size()) {
-            qDebug() << "All sensors have completed. Generating report...";
+        if (iteration == sensors.size()) {
+            qDebug() << "Simulation complete.";
             analyzer->reportPrint();
             timer->stop();
         }
+
+        QCoreApplication::processEvents();
     });
 
-    simulationProgressBar->setRange(0, sensors.size());
-    simulationProgressBar->setValue(0);
-
-    resultTableWidget->setRowCount(sensors.size());
-    resultTableWidget->setColumnCount(2); // Колонки: Sensor Name, Value
-    resultTableWidget->setHorizontalHeaderLabels({"Sensor Name", "Value"});
-
-    qDebug() << "Starting simulation timer...";  // Діагностика перед запуском таймера
+    qDebug() << "Starting timer.";
     timer->start(Config::TIMER_INTERVAL_MS);
 }
 
-void SensorSystem::handleSensorData(const SensorMetric& aSensorMetric) {
-    int row = aSensorMetric.name.mid(QString(Config::SENSOR_NAME_FORMAT).size() - 2).toInt() - 1;
-
-    qDebug() << "Handling data for sensor:" << aSensorMetric.name << "Value:" << aSensorMetric.value;
-
-    resultTableWidget->setItem(row, 0, new QTableWidgetItem(aSensorMetric.name));
-    resultTableWidget->setItem(row, 1, new QTableWidgetItem(QString::number(aSensorMetric.value)));
-
-    simulationProgressBar->setValue(row + 1);
+void SensorSystem::saveDataToFile(const QString& fileName) {
+    logger->saveToFile(fileName);
 }
 
+std::vector<std::unique_ptr<Sensor>>& SensorSystem::getSensors() {
+    return sensors;
+}
+
+
+void SensorSystem::removeSensorAndUpdateUI(int index, QListWidget* listWidget, QTableWidget* tableWidget)
+{
+    if (index >= 0 && index < sensors.size()) {
+        // Разрываем соединения сенсора с логгером и анализатором
+        QObject::disconnect(sensors[index].get(), nullptr, logger.get(), nullptr);
+        QObject::disconnect(sensors[index].get(), nullptr, analyzer.get(), nullptr);
+
+        // Удаляем сенсор из списка сенсоров
+        sensors.erase(sensors.begin() + index);
+
+        // Обновляем интерфейс: удаляем элемент из списка и строку из таблицы
+        delete listWidget->takeItem(index);
+        tableWidget->removeRow(index);
+
+        qDebug() << "Sensor removed from system and UI at index:" << index;
+    } else {
+        qDebug() << "Invalid sensor index:" << index;
+    }
+}
