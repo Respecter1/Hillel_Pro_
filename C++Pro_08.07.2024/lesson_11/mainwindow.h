@@ -1,35 +1,25 @@
 #pragma once
 
 #include <QMainWindow>
-#include <QListWidget>
-#include <QTableWidget>
-#include <QProgressBar>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QCoreApplication>
 #include "SensorSystem.h"
 
-class MainWindow : public QMainWindow
-{
+QT_BEGIN_NAMESPACE
+namespace Ui { class MainWindow; }
+QT_END_NAMESPACE
+
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget* parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
+    ~MainWindow();
 
 private slots:
-    void addSensor();
-    void removeSensor();
-    void simulateSensors();
-
+    void on_pushButton_addSensor_clicked();
+    void on_pushButton_startSimulation_clicked();
+    void on_pushButton_saveToFile_clicked();
+    void on_pushButton_clearSensor_clicked();
 private:
-    QListWidget* sensorListWidget;
-    QTableWidget* resultTableWidget;
-    QProgressBar* simulationProgressBar;
-    QPushButton* addButton;
-    QPushButton* removeButton;
-    QPushButton* simulateButton;
-
-    int sensorCounter;
-    SensorSystem* sensorSystem;
+    Ui::MainWindow *ui;
+    SensorSystem sensorSystem;
 };
