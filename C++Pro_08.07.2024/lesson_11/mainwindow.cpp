@@ -1,80 +1,56 @@
-#include "mainwindow.h"
-#include "Config.h"
+#include "MainWindow.h"
+#include "ui_mainwindow.h"
+#include <QFileDialog>
 
-MainWindow::MainWindow(QWidget* parent)
-    : QMainWindow(parent), sensorCounter(0)
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
 {
-    // Створюємо елементи інтерфейсу
-    sensorListWidget = new QListWidget(this);
-    resultTableWidget = new QTableWidget(this);
-    simulationProgressBar = new QProgressBar(this);
-    addButton = new QPushButton("Додати сенсор", this);
-    removeButton = new QPushButton("Видалити сенсор", this);
-    simulateButton = new QPushButton("Симуляція", this);
-
-    // Задаємо макет для кнопок
-    QHBoxLayout* buttonLayout = new QHBoxLayout();
-    buttonLayout->addWidget(addButton);
-    buttonLayout->addWidget(removeButton);
-    buttonLayout->addWidget(simulateButton);
-
-    // Основний макет
-    QVBoxLayout* mainLayout = new QVBoxLayout();
-    mainLayout->addWidget(sensorListWidget);
-    mainLayout->addLayout(buttonLayout);
-    mainLayout->addWidget(resultTableWidget);
-    mainLayout->addWidget(simulationProgressBar);
-
-    // Створюємо віджет-обгортку і встановлюємо макет
-    QWidget* centralWidget = new QWidget(this);
-    centralWidget->setLayout(mainLayout);
-    setCentralWidget(centralWidget);
-
-    // Встановлення мінімального розміру вікна
-    setMinimumSize(600, 400);
-
-    // Підключення сигналів та слотів
-    connect(addButton, &QPushButton::clicked, this, &MainWindow::addSensor);
-    connect(removeButton, &QPushButton::clicked, this, &MainWindow::removeSensor);
-    connect(simulateButton, &QPushButton::clicked, this, &MainWindow::simulateSensors);
-
-    // Ініціалізація прогрес бару
-    simulationProgressBar->setValue(0);
-
-    // Ініціалізуємо SensorSystem
-    sensorSystem = new SensorSystem(resultTableWidget, simulationProgressBar, this);
+    ui->setupUi(this);
 }
 
-void MainWindow::addSensor()
+MainWindow::~MainWindow()
 {
-    sensorCounter++;
-    QString sensorName = QString("Sensor-%1").arg(sensorCounter);
-    sensorListWidget->addItem(sensorName);
+    delete ui;
 }
 
-void MainWindow::removeSensor()
+void MainWindow::on_pushButton_addSensor_clicked()
 {
-    int currentRow = sensorListWidget->currentRow(); // Отримуємо поточний рядок
+    QString sensorName = QString("Sensor-%1").arg(sensorSystem.getSensors().size() + 1);
+
+    // Добавление сенсора в систему
+    sensorSystem.addSensor(sensorName);
+
+    // Обновление интерфейса
+    ui->listWidget->addItem(sensorName);
+    ui->tableWidget->insertRow(ui->tableWidget->rowCount());  // Добавляем новую строку в таблицу
+    ui->tableWidget->setItem(ui->tableWidget->rowCount() - 1, 0, new QTableWidgetItem(sensorName));
+}
+
+void MainWindow::on_pushButton_startSimulation_clicked()
+{
+    // Вызов метода симуляции из SensorSystem
+    sensorSystem.run(ui->tableWidget, ui->progressBar);
+}
+
+void MainWindow::on_pushButton_saveToFile_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Save Data"), "", tr("Text Files (*.txt);;All Files (*)"));
+
+    if (!fileName.isEmpty()) {
+        sensorSystem.saveDataToFile(fileName);
+    }
+}
+void MainWindow::on_pushButton_clearSensor_clicked()
+{
+    int currentRow = ui->listWidget->currentRow();
+
     if (currentRow >= 0) {
-        QListWidgetItem* item = sensorListWidget->takeItem(currentRow); // Видаляємо елемент зі списку
-        delete item; // Видаляємо елемент з пам'яті
-        sensorListWidget->update(); // Оновлюємо віджет
+        // Вызываем метод удаления сенсора из системы и обновления интерфейса
+        sensorSystem.removeSensorAndUpdateUI(currentRow, ui->listWidget, ui->tableWidget);
+
+        qDebug() << "Sensor removed at row:" << currentRow;
     } else {
         qDebug() << "No sensor selected for deletion.";
     }
-}
-
-
-void MainWindow::simulateSensors()
-{
-    // Очищення таблиці перед початком симуляції
-    resultTableWidget->clearContents();
-    resultTableWidget->setRowCount(0);  // Скидання кількості рядків
-    simulationProgressBar->reset();  // Скидання прогрес-бару
-
-    int numSensors = sensorListWidget->count();  // Отримуємо кількість сенсорів із UI
-
-    // Ініціалізація сенсорів з передачею кількості
-    sensorSystem->initialize(numSensors);
-    sensorSystem->run();
 }
