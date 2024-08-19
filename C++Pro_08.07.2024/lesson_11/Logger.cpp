@@ -4,52 +4,40 @@
 #include <QDateTime>
 #include <QDebug>
 #include "Config.h"
-#include <QDir>
 
-Logger::Logger(const QString& sensorName, QObject* parent)
+Logger::Logger(QObject* parent)
     : QObject(parent)
 {
-    // Генеруємо унікальне ім'я файлу для кожного сенсора при кожному запуску
-    logFileName = generateLogFileName(sensorName);
+    // Генерируем имя файла при создании Logger
+    logFileName = generateLogFileName();
 }
 
-QString Logger::generateLogFileName(const QString& sensorName) const
-{
-    // Отримуємо шлях до виконуваного файлу
-    QString currentPath = QDir::currentPath();
-    qDebug() << "Current path: " << currentPath;  // Діагностика: виводимо шлях до каталогу
-
-    // Генеруємо нове ім'я файлу з урахуванням дати і часу кожного запуску програми
-    QString uniqueFileName = QString("%1_%2.txt").arg(sensorName).arg(QDateTime::currentDateTime().toString("yyyy-MM-dd_HH-mm-ss"));
-
-    // Поєднуємо шлях і унікальне ім'я файлу
-    return QDir(currentPath).filePath(uniqueFileName);
+QString Logger::generateLogFileName() const {
+    return QString(Config::LOG_FILE_NAME_FORMAT).arg(QDateTime::currentDateTime().toString(Config::DATE_TIME_FORMAT));
 }
 
-void Logger::writeData(const SensorMetric& aSensorMetric)
-{
-    QString timestamp = QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss");
+void Logger::writeData(const SensorMetric& aSensorMetric) {
+    QString timestamp = QDateTime::currentDateTime().toString(Config::DATE_TIME_FORMAT);
     QString logMessage = QString("%1 | name=%2 | value=%3").arg(timestamp, aSensorMetric.name, QString::number(aSensorMetric.value));
 
-    qDebug() << logMessage.toStdString().c_str();
+    logData.push_back(logMessage);  // Сохраняем данные в памяти
+    qDebug() << logMessage;  // Выводим в консоль для отладки
+}
 
-    QFile file(logFileName);  // Використовуємо унікальне ім'я файлу для кожного сенсора
-
-    // Додатковий діагностичний код для перевірки, чи можливо створити файл
-    if (!file.exists()) {
-        qDebug() << "File does not exist, trying to create: " << logFileName;
-    }
-
-    if (file.open(QIODevice::Append | QIODevice::Text))  // Відкриваємо файл для запису
-    {
+void Logger::saveToFile(const QString& fileName) const {
+    QFile file(fileName);
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         QTextStream out(&file);
-        out << logMessage << "\n";
+        for (const auto& logEntry : logData) {
+            out << logEntry << "\n";
+        }
         file.close();
-        qDebug() << "File written: " << logFileName;  // Додаємо повідомлення про успішний запис у файл
+        qDebug() << "Data saved to file: " << fileName;
+    } else {
+        qDebug() << "Failed to open file for writing: " << fileName;
     }
-    else
-    {
-        qDebug() << "Failed to open file for writing: " << logFileName;  // Виведення помилки, якщо файл не вдалося відкрити
-        qDebug() << "Error: " << file.errorString();  // Виводимо текст помилки
-    }
+}
+
+const std::vector<QString>& Logger::getLogData() const {
+    return logData;
 }
