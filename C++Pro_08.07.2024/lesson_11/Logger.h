@@ -2,18 +2,27 @@
 
 #include <QObject>
 #include <QString>
+#include <vector>
+
 #include "SensorMetric.h"
-class Logger : public QObject
-{
+
+class Logger : public QObject {
     Q_OBJECT
 public:
-    explicit Logger(const QString& sensorName, QObject* parent = nullptr);
+    Logger(QObject* parent = nullptr);
 
+    // Метод для записи данных в лог
     void writeData(const SensorMetric& aSensorMetric);
-    void clearLogs();  // Оголошуємо метод для очищення логів
+
+    // Метод для сохранения данных в файл
+    void saveToFile(const QString& fileName) const;
+
+    // Метод для получения записанных данных
+    const std::vector<QString>& getLogData() const;
 
 private:
-    QString logFileName;
+    QString generateLogFileName() const;
 
-    QString generateLogFileName(const QString& sensorName) const;
+    QString logFileName;
+    std::vector<QString> logData;  // Хранение логов в памяти
 };
