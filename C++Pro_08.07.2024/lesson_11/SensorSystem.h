@@ -1,30 +1,27 @@
 #pragma once
-
+#include <QListWidget>
+#include <QTableWidget>
+#include <QObject>
+#include <QTableWidget>
+#include <QProgressBar>
 #include <vector>
 #include <memory>
-#include <QObject>
 #include "Sensor.h"
 #include "Logger.h"
 #include "Analyzer.h"
-#include <QTableWidget>
-#include <QProgressBar>
-#include <QString>
 
 class SensorSystem : public QObject {
     Q_OBJECT
 public:
-    explicit SensorSystem(QTableWidget* resultTable, QProgressBar* progressBar, QObject* parent = nullptr);
-    void initialize(int numSensors);
-    void run();
+    SensorSystem(QObject* parent = nullptr);
 
-private slots:
-    void handleSensorData(const SensorMetric& aSensorMetric);
-
+    void addSensor(const QString& sensorName);
+    void run(QTableWidget* tableWidget, QProgressBar* progressBar);
+    void saveDataToFile(const QString& fileName);
+    void removeSensorAndUpdateUI(int index, QListWidget* listWidget, QTableWidget* tableWidget);
+    std::vector<std::unique_ptr<Sensor>>& getSensors();
 private:
     std::vector<std::unique_ptr<Sensor>> sensors;
     std::unique_ptr<Logger> logger;
     std::unique_ptr<Analyzer> analyzer;
-    QTableWidget* resultTableWidget;
-    QProgressBar* simulationProgressBar;
-    int currentSensorIndex;
 };
