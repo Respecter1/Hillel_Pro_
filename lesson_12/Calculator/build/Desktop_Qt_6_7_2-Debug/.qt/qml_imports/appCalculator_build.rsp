@@ -1,0 +1,14 @@
+-rootPath
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_12/Calculator
+-cmake-output
+-output-file
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_12/Calculator/build/Desktop_Qt_6_7_2-Debug/.qt/qml_imports/appCalculator_build.cmake
+-importPath
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_12/Calculator/build/Desktop_Qt_6_7_2-Debug/Calculator
+-importPath
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_12/Calculator/build/Desktop_Qt_6_7_2-Debug
+-importPath
+/home/respecter8/Qt/6.7.2/gcc_64/./qml
+-qrcFiles
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_12/Calculator/build/Desktop_Qt_6_7_2-Debug/.qt/rcc/qmake_Calculator.qrc
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_12/Calculator/build/Desktop_Qt_6_7_2-Debug/.qt/rcc/appCalculator_raw_qml_0.qrc
