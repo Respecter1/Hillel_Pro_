@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/qt/qml/Calculator/">
+    <file alias="Main.qml">/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_12/Calculator/Main.qml</file>
+  </qresource>
+</RCC>
+
