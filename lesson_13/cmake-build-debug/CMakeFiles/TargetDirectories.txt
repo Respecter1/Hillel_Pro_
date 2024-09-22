@@ -1,0 +1,6 @@
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_13/cmake-build-debug/CMakeFiles/lesson_13.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_13/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_13/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_13/cmake-build-debug/lib/CMakeFiles/gate_lib.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_13/cmake-build-debug/lib/CMakeFiles/edit_cache.dir
+/home/respecter8/Hillel_It_School/C++Pro_08.07.2024/lesson_13/cmake-build-debug/lib/CMakeFiles/rebuild_cache.dir
